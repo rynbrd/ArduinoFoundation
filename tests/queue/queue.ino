@@ -4,8 +4,6 @@
 
 using namespace aunit;
 
-namespace FDTN {
-
 class Object {
     public:
         Object() : Object(0, {0x00, 0x00}) {}
@@ -153,8 +151,6 @@ test(QueueTest, AllocAndQueue) {
     assertTrue(*q.dequeue() == expect);
     assertTrue(q.empty());
 }
-
-}  // namespace FDTN
 
 // Test boilerplate.
 void setup() {

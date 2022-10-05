@@ -2,8 +2,6 @@
 
 #include <Arduino.h>
 
-namespace FDTN {
-
 bool getBit(const byte* b, uint8_t offset, uint8_t bit) {
     return ((b[offset] >> bit) & 1) == 1;
 }
@@ -27,5 +25,3 @@ bool xorBits(const byte* b1, const byte* b2, uint8_t offset, uint8_t bit) {
 bool flipBit(byte* b, uint8_t offset, uint8_t bit) {
     return b[offset] ^= (1 << bit);
 }
-
-}  // namespace FDTN

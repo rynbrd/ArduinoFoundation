@@ -3,8 +3,6 @@
 
 #include <Arduino.h>
 
-namespace FDTN {
-
 // A dynamic array. Capacity is generally increased by doubling the current
 // capacity to avoid excessive allocations when adding multiple items. It is
 // always better to reserve anticipated capacity up front via the constructor
@@ -79,8 +77,6 @@ class Array {
         size_t capacity_;
         T* elements_;
 };
-
-}  // namespace FDTN
 
 #include "Array.tpp"
 

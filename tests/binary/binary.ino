@@ -4,8 +4,6 @@
 
 using namespace aunit;
 
-namespace FDTN {
-
 test(BinaryTest, GetBit) {
     uint8_t bytes[8] = {0x01, 0x02, 0x03, 0x04};
     assertTrue(getBit(bytes, 0, 0));
@@ -48,8 +46,6 @@ test(BinaryTest, FlipBit) {
     assertTrue(flipBit(bytes, 2, 0));
     assertEqual(bytes[2], 0x02);
 }
-
-}  // namespace FDTN
 
 // Test boilerplate.
 void setup() {

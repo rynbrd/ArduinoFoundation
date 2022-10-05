@@ -1,4 +1,3 @@
-namespace FDTN {
 
 template <typename T>
 Queue<T>::Queue() : Queue(0, nullptr) {}
@@ -61,5 +60,3 @@ T* Queue<T>::peek() const {
     }
     return buffer_ + front_;
 }
-
-}  // namespace FDTN

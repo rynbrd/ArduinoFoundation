@@ -1,4 +1,3 @@
-namespace FDTN {
 
 template <typename T>
 Array<T>::Array(size_t reserve) :
@@ -113,5 +112,3 @@ void Array<T>::swap(size_t pos_a, size_t pos_b) {
         elements_[pos_b] = tmp;
     }
 }
-
-}  // namespace FDTN

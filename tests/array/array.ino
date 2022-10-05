@@ -4,8 +4,6 @@
 
 using namespace aunit;
 
-namespace FDTN {
-
 class Object {
     public:
         Object() : Object(0, {0x00, 0x00}) {}
@@ -371,8 +369,6 @@ test(ArrayTest, SetElement) {
     assertTrue(arr[0] == obj1);
     assertTrue(arr[1] == obj2);
 }
-
-}  // namespace FDTN
 
 // Test boilerplate.
 void setup() {

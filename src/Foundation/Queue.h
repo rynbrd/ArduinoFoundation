@@ -3,8 +3,6 @@
 
 #include <Arduino.h>
 
-namespace FDTN {
-
 // A fixed-size queue.
 template <typename T>
 class Queue {
@@ -63,8 +61,6 @@ class Queue {
         size_t size_;
         size_t front_;
 };
-
-}  // namespace FDTN
 
 #include "Queue.tpp"
 #endif  // _FOUNDATION_QUEUE_H_
