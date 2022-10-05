@@ -2,6 +2,7 @@
 #define _FOUNDATION_H_
 
 #include "Foundation/Array.h"
+#include "Foundation/Binary.h"
 #include "Foundation/Queue.h"
 
 #endif  // _FOUNDATION_H_
