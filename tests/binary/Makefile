@@ -2,7 +2,7 @@
 # Makefile to compile and run Arduino programs natively on Linux or MacOS.
 
 APP_NAME := binary
-ARDUINO_LIBS := AUnit Foundation
+ARDUINO_LIBS := AUnit Faker Foundation
 EXTRA_CXXFLAGS += -g
 include ../../../EpoxyDuino/EpoxyDuino.mk
 

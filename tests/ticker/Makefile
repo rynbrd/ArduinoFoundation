@@ -1,7 +1,7 @@
 # See https://github.com/bxparks/EpoxyDuino for documentation about this
 # Makefile to compile and run Arduino programs natively on Linux or MacOS.
 
-APP_NAME := array
+APP_NAME := ticker
 ARDUINO_LIBS := AUnit Faker Foundation
 EXTRA_CXXFLAGS += -g
 include ../../../EpoxyDuino/EpoxyDuino.mk
