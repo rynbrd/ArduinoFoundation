@@ -137,6 +137,19 @@ test(QueueTest, Init) {
     assertTrue(*alloc == expect);
 }
 
+void initObjectDataArg(Object* obj, uint8_t id) {
+    obj->id(id);
+    obj->data({0x11, 0x22});
+}
+
+test(QueueTest, InitArg) {
+    Object expect(0x24, {0x11, 0x22});
+
+    Queue<Object> q(1, initObjectDataArg, (uint8_t)0x24);
+    Object* alloc = q.alloc();
+    assertTrue(*alloc == expect);
+}
+
 test(QueueTest, AllocAndQueue) {
     Object expect(0x23, {0x12, 0x13});
 

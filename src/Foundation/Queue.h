@@ -15,6 +15,13 @@ class Queue {
         // it is called on each of the allocated items to initialize them.
         Queue(size_t capacity, void (*init)(T*) = nullptr);
 
+        // Same as above, but the initializer accepts an argument passed via
+        // the constructor.
+        template <typename A>
+        Queue(size_t capacity, void (*init)(T*, A arg), A arg);
+        template <typename A>
+        Queue(size_t capacity, void (*init)(T*, const A& arg), const A& arg);
+
         // Destroy the queue.
         ~Queue();
 

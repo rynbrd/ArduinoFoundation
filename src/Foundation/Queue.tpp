@@ -16,6 +16,34 @@ Queue<T>::Queue(size_t capacity, void (*init)(T*)) :
 }
 
 template <typename T>
+template <typename A>
+Queue<T>::Queue(size_t capacity, void (*init)(T*, A arg), A arg) :
+        buffer_(nullptr), capacity_(capacity), size_(0), front_(0) {
+    if (capacity_ > 0) {
+        buffer_ = new T[capacity_];
+        if (init != nullptr) {
+            for (size_t i = 0; i < capacity_; ++i) {
+                init(buffer_ + i, arg);
+            }
+        }
+    }
+}
+
+template <typename T>
+template <typename A>
+Queue<T>::Queue(size_t capacity, void (*init)(T*, const A& arg), const A& arg) :
+        buffer_(nullptr), capacity_(capacity), size_(0), front_(0) {
+    if (capacity_ > 0) {
+        buffer_ = new T[capacity_];
+        if (init != nullptr) {
+            for (size_t i = 0; i < capacity_; ++i) {
+                init(buffer_ + i, arg);
+            }
+        }
+    }
+}
+
+template <typename T>
 Queue<T>::~Queue() {
     if (buffer_ != nullptr) {
         delete[] buffer_;
