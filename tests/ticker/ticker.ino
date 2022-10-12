@@ -79,8 +79,11 @@ test(TickerTest, StartPaused) {
     Ticker t(0, true, &clock);
 
     assertFalse(t.active());
+    assertFalse(t.triggered());
     clock.set(1000000000);
     assertFalse(t.active());
+    t.reset();
+    assertFalse(t.triggered());
 }
 
 test(TickerTest, PauseResume) {
@@ -88,14 +91,23 @@ test(TickerTest, PauseResume) {
     Ticker t(100, false, &clock);
 
     assertFalse(t.active());
+    t.reset();
+    assertFalse(t.triggered());
     clock.set(101);
     assertTrue(t.active());
+    t.reset();
+    assertTrue(t.triggered());
     t.pause();
     clock.set(201);
     assertFalse(t.active());
+    t.reset();
+    assertTrue(t.triggered());
     t.resume();
+    assertFalse(t.triggered());
     clock.set(301);
     assertTrue(t.active());
+    t.reset();
+    assertTrue(t.triggered());
 }
 
 // Test boilerplate.

@@ -30,8 +30,13 @@ class Ticker {
         // Reset and resume the ticker after it was paused. Calls to active()
         // will behave normally. This is a noop if the ticker is not paused.
         void resume();
+
+        // Return true if the ticker has ever been active since last being
+        // resumed.
+        bool triggered() const;
     private:
         bool paused_;
+        bool triggered_;
         uint32_t interval_;
         uint32_t last_tick_;
         Faker::Clock* clock_;
