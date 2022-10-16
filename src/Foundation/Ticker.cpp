@@ -30,6 +30,10 @@ void Ticker::pause() {
     paused_ = true;
 }
 
+bool Ticker::paused() {
+    return paused_;
+}
+
 void Ticker::resume() {
     paused_ = false;
     triggered_ = false;

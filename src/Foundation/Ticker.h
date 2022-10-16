@@ -27,6 +27,9 @@ class Ticker {
         // is called. This is a noop if the ticker is already paused.
         void pause();
 
+        // Return true if the ticker is paused.
+        bool paused();
+
         // Reset and resume the ticker after it was paused. Calls to active()
         // will behave normally. This is a noop if the ticker is not paused.
         void resume();

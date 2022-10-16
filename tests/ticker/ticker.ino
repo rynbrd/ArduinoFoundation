@@ -78,6 +78,7 @@ test(TickerTest, StartPaused) {
     FakeClock clock;
     Ticker t(0, true, &clock);
 
+    assertTrue(t.paused());
     assertFalse(t.active());
     assertFalse(t.triggered());
     clock.set(1000000000);
@@ -90,6 +91,7 @@ test(TickerTest, PauseResume) {
     FakeClock clock;
     Ticker t(100, false, &clock);
 
+    assertFalse(t.paused());
     assertFalse(t.active());
     t.reset();
     assertFalse(t.triggered());
@@ -99,10 +101,12 @@ test(TickerTest, PauseResume) {
     assertTrue(t.triggered());
     t.pause();
     clock.set(201);
+    assertTrue(t.paused());
     assertFalse(t.active());
     t.reset();
     assertTrue(t.triggered());
     t.resume();
+    assertFalse(t.paused());
     assertFalse(t.triggered());
     clock.set(301);
     assertTrue(t.active());
