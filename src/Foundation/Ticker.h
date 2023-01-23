@@ -17,10 +17,8 @@ class Ticker {
         // subsequent calls until reset is called.
         bool active() const;
 
-        // Reset the ticker's interval.
+        // Reset the ticker's interval. Optionally set a new interval value.
         void reset();
-
-        // Reset the ticker with a specific interval.
         void reset(uint32_t interval);
 
         // Pause the ticker. Calls to active() will return false until resume()
@@ -32,7 +30,9 @@ class Ticker {
 
         // Reset and resume the ticker after it was paused. Calls to active()
         // will behave normally. This is a noop if the ticker is not paused.
+        // Optionally set a new interval value.
         void resume();
+        void resume(uint32_t interval);
 
         // Return true if the ticker has ever been active since last being
         // resumed.

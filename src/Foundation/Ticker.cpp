@@ -40,6 +40,11 @@ void Ticker::resume() {
     reset();
 }
 
+void Ticker::resume(uint32_t interval) {
+    resume();
+    interval_ = interval;
+}
+
 bool Ticker::triggered() const {
     return triggered_;
 }
