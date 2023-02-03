@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include <Faker.h>
 
-// Ticker is used to trigger actions repeatedly after a time inteval.
+// Ticker is used to trigger actions repeatedly after a time interval.
 class Ticker {
     public:
         // Construct a ticker which triggers after interval ms have passed. A
@@ -36,7 +36,7 @@ class Ticker {
 
         // Return true if the ticker has ever been active since last being
         // resumed.
-        bool triggered() const;
+        bool triggered();
     private:
         bool paused_;
         bool triggered_;

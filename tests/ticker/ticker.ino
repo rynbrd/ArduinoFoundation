@@ -90,25 +90,33 @@ test(TickerTest, StartPaused) {
 test(TickerTest, PauseResume) {
     FakeClock clock;
     Ticker t(100, false, &clock);
-
     assertFalse(t.paused());
+
+    clock.delay(1);
+    assertFalse(t.triggered());
     assertFalse(t.active());
     t.reset();
     assertFalse(t.triggered());
-    clock.set(101);
+
+    clock.delay(101);
+    assertTrue(t.triggered());
     assertTrue(t.active());
     t.reset();
     assertTrue(t.triggered());
+
     t.pause();
-    clock.set(201);
+    clock.delay(101);
     assertTrue(t.paused());
+    assertTrue(t.triggered());
     assertFalse(t.active());
     t.reset();
     assertTrue(t.triggered());
+
     t.resume();
     assertFalse(t.paused());
     assertFalse(t.triggered());
-    clock.set(301);
+    clock.delay(301);
+    assertTrue(t.triggered());
     assertTrue(t.active());
     t.reset();
     assertTrue(t.triggered());

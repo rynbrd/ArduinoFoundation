@@ -27,6 +27,9 @@ void Ticker::reset(uint32_t interval) {
 }
 
 void Ticker::pause() {
+    if (!paused_ && clock_->millis() - last_tick_ >= interval_) {
+        triggered_ = true;
+    }
     paused_ = true;
 }
 
@@ -37,7 +40,7 @@ bool Ticker::paused() {
 void Ticker::resume() {
     paused_ = false;
     triggered_ = false;
-    reset();
+    last_tick_ = clock_->millis();
 }
 
 void Ticker::resume(uint32_t interval) {
@@ -45,6 +48,9 @@ void Ticker::resume(uint32_t interval) {
     interval_ = interval;
 }
 
-bool Ticker::triggered() const {
+bool Ticker::triggered() {
+    if (!paused_ && clock_->millis() - last_tick_ >= interval_) {
+        triggered_ = true;
+    }
     return triggered_;
 }
